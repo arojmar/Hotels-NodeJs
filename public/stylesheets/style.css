@@ -1,0 +1,15 @@
+body {
+  padding: 0;
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.row.cards {
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}

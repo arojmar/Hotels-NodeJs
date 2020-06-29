@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hotels view.ejs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+    integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+    crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <header class="pb-4">
+      <% include header.ejs %>
+    </header>
+    <main>
+      <div class="container-fluid p-4">
+        <h1 class="display-4 text-center">Hotels List</h1>
+        <div class="row cards">
+          <% result.forEach(hotel => { %>
+          <div class="p-4">
+              <div class="card" style="width: 18rem;">
+                <img src="<%= hotel.image %>" class="card-img-top" alt="">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><%= hotel.name %></h5>
+                  <p class="card-text"><%- hotel.adress %></p>
+                  <p class="card-text pb-3"><%- hotel.phone %></p>
+                  <div class="buttony d-flex justify-content-around">
+                    <div class="d-block">
+                      <a href="/hotels/editHotel/<%= hotel.idhotel %> %>" class="btn btn-primary">Modify</a>
+                    </div>
+                    <div class="d-block">
+                      <a href="/hotels/removeHotel/<%= hotel.idhotel %>" class="btn btn-danger">Delete</a>
+                    </div> 
+                  </div>
+                </div>
+              </div>
+          </div>
+          <% }); %>
+        </div>
+        <div class="row pt-4">
+          <div class="col-12">
+              <table class="table">
+                  <thead class="thead-dark">
+                      <tr>
+                          <th class="cabecera" scope="col"></>
+                          <th scope="col">#</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Address</th>
+                          <th scope="col">Phone</th>
+                          <th scope="col">Image</th>
+                      </tr>
+                  </thead>
+                  <tbody class="registered-tbody">
+                      <% result.forEach(hotel => { %>
+                      <tr>
+                        <td class="opciones d-flex justify-content-around">
+                          <div class="borrar col-2 col-sm-2 col-md-2 col-lg-6">
+                            <a href="/hotels/removeHotel/<%= hotel.idhotel %>">
+                              <i class="fas fa-trash-alt"></i>
+                            </a>
+                          </div>
+                          <div class="editar col-2 col-sm-2 col-md-2 col-lg-6">
+                            <a href="/hotels/editHotel/<%= hotel.idhotel %>">
+                              <i class="fas fa-edit"></i>
+                            </a>
+                          </div>
+                        </td>
+                        <th scope="row">
+                          <%= hotel.idhotel %>
+                        </th>
+                        <td><%= hotel.name %></td>
+                        <td><%= hotel.adress %></td>
+                        <td><%= hotel.phone %></td>
+                        <td><%= hotel.image %></td>
+                      </tr>
+                    <% }); %>  
+                  </tbody>
+              </table>
+            </div>
+         </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  </body>
+</html>
