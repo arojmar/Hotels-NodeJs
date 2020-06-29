@@ -7,15 +7,11 @@ userController.loginUser = (req, res) => {
 
 userController.checkLogin = (req, res) => {
     let user = req.body.emailUser;
-    console.log("userController.checkLogin -> user", user);
     let password = req.body.passwordUser;
-    console.log("userController.checkLogin -> password", password);
 
     let queryLogin = `SELECT email, password FROM user
                     WHERE email='${user}' AND password='${password}';`;
     connection.query(queryLogin, (err, resultLogin) => {
-        console.log(resultLogin);
-        console.log("EMAIL: " + resultLogin[0].email);
         if(err) throw err;
         if(!resultLogin[0].email) {
             res.redirect('login');   
