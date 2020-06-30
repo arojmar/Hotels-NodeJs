@@ -20,30 +20,30 @@
     </header>
     <main>
       <div class="container">
-        <h1>Hotel Modification</h1>
+        <h1>User Modification</h1>
         <div class="row">
           <div class="col-6">
-            <form action="/hotels/updateHotel/<%= result.idhotel %>" method="post" enctype="multipart/form-data">
+            <form action="/users/updateUser/<%= resultUserToModify.iduser %>" method="post" enctype="multipart/form-data">
               <div class="form-group">
-                <label for="exampleInputHotelName1">Name</label>
-                <input type="text" name="hotelName" class="form-control"
-                value="<%= result.name %>">
+                <label for="exampleInputUserName1">Name</label>
+                <input type="text" name="userName" class="form-control"
+                value="<%= resultUserToModify.name %>">
               </div>
               <div class="form-group">
-                <label for="exampleInputHotelAddress1">Address</label>
-                <input type="text" name="hotelAddress" class="form-control"
-                 id="exampleInputHotelAddress1" value="<%= result.adress %>">
+                <label for="exampleInputUserEmail1">Email</label>
+                <input type="email" name="userEmail" class="form-control"
+                 id="exampleInputUserEmail1" value="<%= resultUserToModify.email %>">
               </div>
               <div class="form-group">
-                <label for="exampleInputHotelPhone1">Phone</label>
-                <input type="text" name="hotelPhone" class="form-control" 
-                id="exampleInputHotelPhone1" value="<%= result.phone %>">
+                <label for="exampleInputUserPassword1">Password</label>
+                <input type="password" name="userPassword" class="form-control" 
+                id="exampleInputUserPassword1">
               </div>
               <div class="form-group">
-                <label for="exampleInputHotelImage1">Image</label>
-                <img src="/images/hotels/<%= result.image %>">
-                <input type="file" name="hotelImage" class="form-control" 
-                id="exampleInputHotelImage1" value="<%= result.image %>">
+                <label for="exampleInputUserImage1">Image</label>
+                <img src="/images/users/<%= resultUserToModify.image %>">
+                <input type="file" name="userImage" class="form-control" 
+                id="exampleInputUserImage1">
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>

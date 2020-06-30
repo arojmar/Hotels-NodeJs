@@ -11,5 +11,5 @@ a {
 .row.cards {
   flex-flow: row wrap;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
 }

@@ -23,21 +23,26 @@
         <h1>Create a new user</h1>
         <div class="row">
           <div class="col-6">
-            <form action="/users/registered" method="post">
+            <form action="/users/registered" method="post" enctype="multipart/form-data"> 
               <div class="form-group">
                 <label for="exampleInputUserName1">Name</label>
-                <input type="text" name="nameUser" class="form-control"
-                 id="exampleInputUserName1">
+                <input type="text" name="userName" class="form-control"
+                 id="exampleInputUserName1" required>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">email</label>
-                <input type="email" name="emailUser" class="form-control"
-                 id="exampleInputEmail1">
+                <input type="email" name="userEmail" class="form-control"
+                 id="exampleInputEmail1" required>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" name="passwordUser" class="form-control"
-                 id="exampleInputPassword1">
+                <input type="password" name="userPassword" class="form-control"
+                 id="exampleInputPassword1" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputImage1">Image</label>
+                <input type="file" name="userImage" class="form-control"
+                 id="exampleInputImage1">
               </div>
               <button type="submit" class="btn btn-primary">Register</button>
             </form>

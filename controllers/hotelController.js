@@ -4,6 +4,7 @@
 // La funcionalidad va dentro de este archivo
 
 let connection = require('../config/db.js');
+let fs = require('fs');
 let hotelController = {};
 
 
@@ -23,20 +24,46 @@ hotelController.saveHotel = (req, res) => {
     let address = req.body.hotelAddress;
     let phone = req.body.hotelPhone;
 
-    let sqlInsert = `INSERT INTO hotel (name, adress, phone)
-                    VALUES ('${name}', '${address}', ${phone}); `;
-    connection.query(sqlInsert, (err, resultInsert) => {
-        if(err) throw err;
-        res.redirect('/hotels');
-    });
+    if(req.file == undefined){
+        let sqlInsert = `INSERT INTO hotel (name, adress, phone)
+                        VALUES ('${name}', '${address}', 
+                        ${phone});`;
+        connection.query(sqlInsert, (err, resultInsert) => {
+            if(err) throw err;
+            res.redirect('/hotels');
+        });
+
+    } else {
+        let filename = req.file.filename;
+        let sqlInsert = `INSERT INTO hotel (name, adress, phone, image)
+                        VALUES ('${name}', '${address}', 
+                        ${phone}, '${filename}');`;
+        connection.query(sqlInsert, (err, resultInsert) => {
+            if(err) throw err;
+            res.redirect('/hotels');
+        });
+    }   
 };
 
 hotelController.removeHotel = (req, res) => {
     let idHotel = req.params.idHotel;
-    let sqlRemove = `DELETE FROM hotel WHERE idhotel = '${idHotel}';`;
-    connection.query(sqlRemove, (err, resultDelete) => {
+
+    let sqlImageToRemove = `SELECT image FROM hotel WHERE idhotel =${idHotel}`;
+
+    connection.query(sqlImageToRemove, (err, resultImgToRemove) => {
+        
         if(err) throw err;
-        res.redirect('/hotels');
+
+        if(resultImgToRemove[0].image != null){
+            var filePath = `public/images/hotels/${resultImgToRemove[0].image}`;
+            fs.unlinkSync(filePath);
+        }
+       
+        let sqlRemove = `DELETE FROM hotel WHERE idhotel = ${idHotel};`;
+        connection.query(sqlRemove, (err, resultDelete) => {
+            if(err) throw err;
+            res.redirect('/hotels');
+        });
     });
 };
 
@@ -55,16 +82,28 @@ hotelController.updateHotel = (req, res) => {
     let name = req.body.hotelName;
     let address = req.body.hotelAddress;
     let phone = req.body.hotelPhone;
-    let sqlUpdate = `UPDATE hotel 
-                    SET name = '${name}', adress = '${address}', phone = ${phone}
+    //var filename = null;
+    if(req.file == undefined){
+
+        let sqlUpdate = `UPDATE hotel 
+                    SET name = '${name}', adress = '${address}',
+                    phone = ${phone} WHERE idhotel = ${idhotel};`;
+        connection.query(sqlUpdate, (err, resultUpdate) =>{
+            if(err) throw err;
+            res.redirect('/hotels');
+        });
+    } else {
+        let filename = req.file.filename;
+        let sqlUpdate = `UPDATE hotel 
+                    SET name = '${name}', adress = '${address}',
+                    phone = ${phone}, image = '${filename}'
                     WHERE idhotel = ${idhotel};`;
-    connection.query(sqlUpdate, (err, resultUpdate) =>{
-        if(err) throw err;
-        res.redirect('/hotels');
-    });
-
+        connection.query(sqlUpdate, (err, resultUpdate) =>{
+            if(err) throw err;
+            res.redirect('/hotels');
+         });
+    }
 };
-
 
 //exportamos el objeto
 module.exports = hotelController;
