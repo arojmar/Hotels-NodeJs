@@ -34,48 +34,6 @@
           </div>
           <% }); %>
         </div>
-        <div class="row pt-4">
-          <div class="col-12">
-              <table class="table">
-                  <thead class="thead-dark">
-                      <tr>
-                          <th class="cabecera" scope="col"></>
-                          <th scope="col">#</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Email</th>
-                          <th scope="col">Password</th>
-                          <th scope="col">Image</th>
-                      </tr>
-                  </thead>
-                  <tbody class="registered-tbody">
-                      <% resultUsers.forEach(user => { %>
-                      <tr>
-                        <td class="opciones d-flex justify-content-around">
-                          <div class="borrar col-2 col-sm-2 col-md-2 col-lg-6">
-                            <a href="/users/removeUser/<%= user.iduser %>">
-                              <i class="fas fa-trash-alt"></i>
-                            </a>
-                          </div>
-                          <div class="editar col-2 col-sm-2 col-md-2 col-lg-6">
-                            <a href="/users/editUser/<%= user.iduser %>">
-                              <i class="fas fa-edit"></i>
-                            </a>
-                          </div>
-                        </td>
-                        <th scope="row">
-                          <%= user.iduser %>
-                        </th>
-                        <td><%= user.name %></td>
-                        <td><%= user.email %></td>
-                        <td><%= user.password %></td>
-                        <td><%= user.image %></td>
-                      </tr>
-                    <% }); %>  
-                  </tbody>
-              </table>
-            </div>
-         </div>
-        </div>
       </div>
     </main>
     <% include footer.ejs %>

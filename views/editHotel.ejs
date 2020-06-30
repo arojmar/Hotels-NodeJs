@@ -14,7 +14,7 @@
       <div class="container">
         <h1>Hotel Modification</h1>
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-sm-12 col-md-8 col-lg-6 forms">
             <form action="/hotels/updateHotel/<%= result.idhotel %>" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="exampleInputHotelName1">Name</label>
@@ -33,9 +33,11 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputHotelImage1">Image</label>
-                <img src="/images/hotels/<%= result.image %>">
-                <input type="file" name="hotelImage" class="form-control" 
-                id="exampleInputHotelImage1" value="<%= result.image %>">
+                <div class="image-group">
+                  <img src="/images/hotels/<%= result.image %>" class="img-uploaded">
+                  <input type="file" name="hotelImage" class="form-file" 
+                  id="exampleInputHotelImage1" value="<%= result.image %>">
+                </div>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>

@@ -14,7 +14,7 @@
       <div class="container">
         <h1>Create a new user</h1>
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-sm-12 col-md-8 col-lg-6 forms">
             <form action="/users/registered" method="post" enctype="multipart/form-data"> 
               <div class="form-group">
                 <label for="exampleInputUserName1">Name</label>
@@ -32,9 +32,11 @@
                  id="exampleInputPassword1" required>
               </div>
               <div class="form-group">
-                <label for="exampleInputImage1">Image</label>
-                <input type="file" name="userImage" class="form-control"
+                <label for="exampleInputHotelImage1">Image</label>
+                <div class="image-group">
+                  <input type="file" name="userImage" class="form-file"
                  id="exampleInputImage1">
+                </div>
               </div>
               <button type="submit" class="btn btn-primary">Register</button>
             </form>

@@ -14,7 +14,7 @@
       <div class="container">
         <h1>User Modification</h1>
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-sm-12 col-md-8 col-lg-6 forms">
             <form action="/users/updateUser/<%= resultUserToModify.iduser %>" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="exampleInputUserName1">Name</label>
@@ -32,10 +32,12 @@
                 id="exampleInputUserPassword1">
               </div>
               <div class="form-group">
-                <label for="exampleInputUserImage1">Image</label>
-                <img src="/images/users/<%= resultUserToModify.image %>">
-                <input type="file" name="userImage" class="form-control" 
-                id="exampleInputUserImage1">
+                <label for="exampleInputHotelImage1">Image</label>
+                <div class="image-group">
+                  <img src="/images/users/<%= resultUserToModify.image %>" class="img-uploaded">
+                  <input type="file" name="userImage" class="form-file" 
+                  id="exampleInputUserImage1">
+                </div>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>

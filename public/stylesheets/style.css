@@ -18,6 +18,27 @@ a {
   color: #00B7FF;
 }
 
+.container.index{
+  height: max-content;
+}
+
+.carousel-item img{
+  opacity: 0.75;
+}
+
+.display-1.carousel-1{
+  color: black;
+  margin-bottom: 13.5rem;
+}
+.display-1.carousel-2{
+  margin-bottom: 0.5rem;
+  text-decoration: firebrick;
+}
+.display-1.carousel-3{
+  color: black;
+  margin-bottom: 16.5rem;
+}
+
 .carousel-item img {
   height: 694px;
 }
@@ -39,9 +60,36 @@ a {
   justify-content:center;
 }
 
-.display-4 {
-  padding-top: 2rem;;
+.forms{
+  padding: 2rem;
+  background-color: #d3d1d1a8;
+  border: 1px solid #ececec;
+  border-radius: 0.4rem;
+  box-shadow: 4px 6px 7px #00000052;
 }
+
+.img-uploaded {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.image-group {
+  background-color: #ffffff;
+  border: 1px solid #CED4DA;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form-file {
+  padding: 5px;
+}
+
+.display-4 {
+  padding-top: 2rem;
+}
+
 /* Estilos para botones */
 .btn-primary{
   box-shadow: 3px 2px 3px 0px #808080;

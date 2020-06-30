@@ -35,48 +35,6 @@
           </div>
           <% }); %>
         </div>
-        <div class="row pt-4">
-          <div class="col-12">
-              <table class="table">
-                  <thead class="thead-dark">
-                      <tr>
-                          <th class="cabecera" scope="col"></>
-                          <th scope="col">#</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Address</th>
-                          <th scope="col">Phone</th>
-                          <th scope="col">Image</th>
-                      </tr>
-                  </thead>
-                  <tbody class="registered-tbody">
-                      <% result.forEach(hotel => { %>
-                      <tr>
-                        <td class="opciones d-flex justify-content-around">
-                          <div class="borrar col-2 col-sm-2 col-md-2 col-lg-6">
-                            <a href="/hotels/removeHotel/<%= hotel.idhotel %>">
-                              <i class="fas fa-trash-alt"></i>
-                            </a>
-                          </div>
-                          <div class="editar col-2 col-sm-2 col-md-2 col-lg-6">
-                            <a href="/hotels/editHotel/<%= hotel.idhotel %>">
-                              <i class="fas fa-edit"></i>
-                            </a>
-                          </div>
-                        </td>
-                        <th scope="row">
-                          <%= hotel.idhotel %>
-                        </th>
-                        <td><%= hotel.name %></td>
-                        <td><%= hotel.adress %></td>
-                        <td><%= hotel.phone %></td>
-                        <td><%= hotel.image %></td>
-                      </tr>
-                    <% }); %>  
-                  </tbody>
-              </table>
-            </div>
-         </div>
-        </div>
       </div>
     </main>
     <% include footer.ejs %>
