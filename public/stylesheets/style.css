@@ -1,15 +1,108 @@
 body {
   padding: 0;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Arvo', serif, Helvetica, Arial, sans-serif;
+  background: url('../images/bg-pattern1.png');
+  
+  background-position: center;
+  
+}
+
+.header-bar {
+  position:fixed;
+  width: 100%;
+  z-index:1;
 }
 
 a {
   color: #00B7FF;
 }
 
+.carousel-item img {
+  height: 694px;
+}
+
+.container {
+  padding-top: 5rem;
+}
+.card {
+  box-shadow: 6px 7px 8px 0px rgba(143, 143, 143, 0.45);
+}
+
+.card-body {
+  background-color: rgba(0, 123, 255, 0.09);
+}
+
 .row.cards {
   flex-flow: row wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content:center;
 }
+
+.display-4 {
+  padding-top: 2rem;;
+}
+/* Estilos para botones */
+.btn-primary{
+  box-shadow: 3px 2px 3px 0px #808080;
+  background:linear-gradient(to bottom, #4bc5ffc7 5%, rgb(0, 60, 179) 100%);
+  background-color:#79bbff;
+  border-radius:6px;
+  border:1px solid #84bbf3;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 0px 0px #528ecc;
+}
+.btn-primary:hover {
+  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+  background-color:#378de5;
+}
+.btn-primary:active {
+  position:relative;
+  top:1px;
+}
+
+.btn-danger{
+  box-shadow: 3px 2px 3px 0px #808080;
+  background:linear-gradient(to bottom, #fb8383f2 5%, #ad0e00 100%);
+  background-color:#f24537;
+  border-radius:6px;
+  border:1px solid #d02718;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #810e05;
+}
+.btn-danger:hover {
+  background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+  background-color:#c62d1f;
+}
+.btn-danger:active {
+  position:relative;
+  top:1px;
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px; 
+  line-height: 40px; 
+  
+  
+}
+ .footer a {
+  text-decoration: none;
+  color: #808080;
+ }
+
+ .footer a:hover {
+  text-decoration: none;
+  color: #b8b8b8;
+ }
